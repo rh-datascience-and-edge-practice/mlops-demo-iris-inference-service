@@ -31,7 +31,7 @@ class AppConfig:
         name = environ.var("Iris", help="The name of the model.")
         service_type = environ.var("MODEL")
         file = environ.var(
-            "../models/iris-model.h5",
+            "../models/iris-model.pkl",
             help="The file location of the model.",
         )
 
