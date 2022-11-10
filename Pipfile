@@ -21,6 +21,7 @@ tox = "*"
 pytest = "*"
 tox-pipenv = "*"
 jupyter = "*"
+requests = "*"
 
 [requires]
 python_version = "3.9"
