@@ -8,6 +8,7 @@ seldon-core = "*"
 environ-config = "*"
 python-dotenv = "*"
 pandas = "*"
+scikit-learn = "*"
 
 [dev-packages]
 flake8 = "*"
