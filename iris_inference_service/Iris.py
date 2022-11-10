@@ -32,10 +32,19 @@ class Iris:
 
     def predict(self, X, features_names):
         """Prediction method for model class."""
+        logging.debug(
+            f"Performing prediction on X: {X}, features_names: {features_names}"
+        )
+
         if not self.loaded:
             self.load()
 
         df = pd.DataFrame(data=X, columns=features_names)
 
         pred = self.model.predict(df)
+
+        logging.debug(
+            f"Prediction result from X: {X}, features_names: {features_names}, pred: {pred}"
+        )
+
         return pred
