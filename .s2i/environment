@@ -1,0 +1,2 @@
+ENABLE_MICROPIPENV=True
+APP_HOME=iris_inference_service

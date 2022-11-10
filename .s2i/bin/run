@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd ${APP_HOME}
+
+echo "---> Container Environment Variables"
+# execute the helper script to display env vars
+python config.py
+
+LOG_LEVEL="${LOG_LEVEL:-INFO}"
+MODEL_NAME="${MODEL_NAME:-Iris}"
+MODEL_SERVICE_TYPE="${MODEL_SERVICE_TYPE:-MODEL}"
+
+echo ""
+
+echo "---> Starting Seldon"
+
+exec seldon-core-microservice ${MODEL_NAME} --service-type ${MODEL_SERVICE_TYPE} --log-level ${LOG_LEVEL}
