@@ -6,6 +6,8 @@ import sys
 
 from config import app_cfg
 
+import numpy as np
+
 import pandas as pd
 
 
@@ -48,3 +50,26 @@ class Iris:
         )
 
         return pred
+
+    def health_status(self):
+        """Health endpoint validation for model class."""
+        X_example = [[7.2, 3.6, 6.1, 2.5]]
+        columns = ["sepal length", "sepal width", "petal length", "petal width"]
+
+        response = self.predict(X_example, columns)
+
+        if not type(response) == np.ndarray:
+            raise AssertionError(
+                "Prediction did not return the expected type of numpy.ndarray; "
+                f"recieved {type(response)} instead."
+            )
+
+        if not len(response) == 1:
+            raise AssertionError(
+                "Prediction did not return a result of the expected length of 1; "
+                f"received length of {len(response)} instead."
+            )
+
+        logging.debug("Health endpoint check successful.")
+
+        return response
