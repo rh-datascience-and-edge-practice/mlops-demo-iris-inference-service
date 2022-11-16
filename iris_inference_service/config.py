@@ -1,4 +1,6 @@
 """Configuration file for managing environment variables."""
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 import environ
@@ -12,14 +14,14 @@ class AppConfig:
     class Log:
         """App configuration object used for managing logging settings."""
 
-        level = environ.var("DEBUG")
+        level = environ.var("INFO", help="The log level of the service.")
 
         @level.validator
         def _ensure_level_is_valid(self, var, level):
             valid_options = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
             if level not in valid_options:
                 raise ValueError(
-                    f"LOG_LEVEL is invalid.  Must be set to one of the following: {valid_options}"
+                    f"LOG_LEVEL of {level} is invalid.  Must be set to one of the following: {valid_options}"
                 )
 
     log = environ.group(Log)
@@ -29,11 +31,33 @@ class AppConfig:
         """App configuration object used for managing model settings."""
 
         name = environ.var("Iris", help="The name of the model.")
+
         service_type = environ.var("MODEL")
+
+        @service_type.validator
+        def _ensure_service_type_is_valid(self, var, service_type):
+            valid_options = [
+                "MODEL",
+                "ROUTER",
+                "TRANSFORMER",
+                "COMBINER",
+                "OUTLIER_DETECTOR",
+            ]
+            if service_type not in valid_options:
+                raise ValueError(
+                    f"MODEL_SERVICE_TYPE of {service_type} is invalid.  Must be set to one of the following: {valid_options}"
+                )
+
         file = environ.var(
             "../models/iris-model.pkl",
+            converter=Path,
             help="The file location of the model.",
         )
+
+        @file.validator
+        def _ensure_model_file_exists(self, var, file):
+            if not file.exists():
+                raise ValueError("MODEL_FILE {file} not found.")
 
     model = environ.group(Model)
 
