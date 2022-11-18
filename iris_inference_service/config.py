@@ -10,6 +10,10 @@ import environ
 class AppConfig:
     """Application configuration object used for managing environment variables."""
 
+    def __init__():
+        """Load environment variables with dotenv."""
+        load_dotenv()
+
     @environ.config
     class Log:
         """App configuration object used for managing logging settings."""
@@ -62,8 +66,6 @@ class AppConfig:
     model = environ.group(Model)
 
 
-# load environment and assign it to the environ config
-load_dotenv()
 app_cfg = environ.to_config(AppConfig)
 
 if __name__ == "__main__":
