@@ -1,3 +1,2 @@
 ENABLE_MICROPIPENV=True
 UPGRADE_PIP_TO_LATEST=True
-APP_HOME=iris_inference_service

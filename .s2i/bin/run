@@ -1,17 +1,8 @@
-#!/bin/bash
-
-cd ${APP_HOME}
+#!/bin/sh
 
 echo "---> Container Environment Variables"
 # execute the helper script to display env vars
-python config.py
+python iris_inference_service.config.py
 
-LOG_LEVEL="${LOG_LEVEL:-INFO}"
-MODEL_NAME="${MODEL_NAME:-Iris}"
-MODEL_SERVICE_TYPE="${MODEL_SERVICE_TYPE:-MODEL}"
-
-echo ""
-
-echo "---> Starting Seldon"
-
-exec seldon-core-microservice ${MODEL_NAME} --service-type ${MODEL_SERVICE_TYPE} --log-level ${LOG_LEVEL}
+echo "---> Continuing standard startup script"
+exec /usr/libexec/s2i/run
