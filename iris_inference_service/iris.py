@@ -4,7 +4,7 @@ import logging
 import pickle  # noqa - S403
 import sys
 
-from config import app_cfg
+from iris_inference_service.config import app_cfg
 
 import numpy as np
 
@@ -14,11 +14,11 @@ import pandas as pd
 class Iris:
     """Iris inference model class."""
 
-    def __init__(self):
+    def __init__(self, model_name=app_cfg.model.name, model_file=app_cfg.model.file):
         """Seldon class init."""
         self.loaded = False
-        self.model_name = app_cfg.model.name
-        self.model_file = app_cfg.model.file
+        self.model_name = model_name
+        self.model_file = model_file
 
     def load(self):
         """Load machine learning model."""
