@@ -29,6 +29,15 @@ def test_iris_load_model_fail():
         iris.load()
 
 
+# def test_predict(iris, mocker):
+#     X = [[7.2, 3.6, 6.1, 2.5]]
+#     columns = ["sepal length", "sepal width", "petal length", "petal width"]
+
+#     with mocker.patch.object(Iris, "model.predict", return_value=np.array([1])):
+#         result = iris.predict(X=X, features_names=columns)
+#         assert result == [1]
+
+
 def test_predict_response_wrong_number_of_x(iris):
     X = [[7.2, 3.6, 6.1]]
     columns = ["sepal length", "sepal width", "petal length", "petal width"]
@@ -44,15 +53,6 @@ def test_model_response_types(iris):
     result = iris.predict(X=X, features_names=columns)
     assert type(result) == np.ndarray
     assert len(result) == 1
-
-
-# def test_request(iris, mocker):
-#     X = [[7.2, 3.6, 6.1, 2.5]]
-#     columns = ["sepal length", "sepal width", "petal length", "petal width"]
-
-#     with mocker.patch.object(Iris, "model.predict", new=mock_predict):
-#         result = iris.predict(X=X, features_names=columns)
-#         assert result == [1]
 
 
 def test_health_check(iris, mocker):
