@@ -4,6 +4,7 @@
 # Allow specific files
 !.s2iignore
 !.s2i/
+!app.py
 !Pipfile
 !Pipfile.lock
 !iris_inference_service/
