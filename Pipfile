@@ -22,6 +22,7 @@ pytest = "*"
 tox-pipenv = "*"
 jupyter = "*"
 requests = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.9"
