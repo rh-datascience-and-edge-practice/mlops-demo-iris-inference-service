@@ -49,7 +49,7 @@ class AppConfig:
                 )
 
         file = environ.var(
-            "../models/iris-model.pkl",
+            "./models/iris-model.pkl",
             converter=Path,
             help="The file location of the model.",
         )
