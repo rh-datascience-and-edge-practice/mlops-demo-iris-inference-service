@@ -1,6 +1,7 @@
 """Seldon model class for Iris inference."""
 import errno
 import logging
+import os
 import pickle  # noqa - S403
 import sys
 
@@ -28,7 +29,9 @@ class Iris:
             self.model = pickle.load(open(self.model_file, "rb"))  # noqa - S301
         except IOError:
             logging.exception(f"Unable to load the model file: {self.model_file}")
-            sys.exit(errno.ENOENT)
+            raise FileNotFoundError(
+                errno.ENOENT, os.strerror(errno.ENOENT), self.model_file
+            )
 
         self.loaded = True
 
@@ -41,7 +44,11 @@ class Iris:
         if not self.loaded:
             self.load()
 
-        df = pd.DataFrame(data=X, columns=features_names)
+        try:
+            df = pd.DataFrame(data=X, columns=features_names)
+        except ValueError:
+            logging.exception("Unable to construct the dataframe.")
+            raise ValueError
 
         pred = self.model.predict(df)
 
