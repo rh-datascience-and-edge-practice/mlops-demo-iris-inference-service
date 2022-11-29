@@ -25,7 +25,8 @@ class AppConfig:
             valid_options = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
             if level not in valid_options:
                 raise ValueError(
-                    f"LOG_LEVEL of {level} is invalid.  Must be set to one of the following: {valid_options}"
+                    f"LOG_LEVEL of {level} is invalid.  "
+                    f"Must be set to one of the following: {valid_options}"
                 )
 
     log = environ.group(Log)
@@ -49,7 +50,8 @@ class AppConfig:
             ]
             if service_type not in valid_options:
                 raise ValueError(
-                    f"MODEL_SERVICE_TYPE of {service_type} is invalid.  Must be set to one of the following: {valid_options}"
+                    f"MODEL_SERVICE_TYPE of {service_type} is invalid.  "
+                    f"Must be set to one of the following: {valid_options}"
                 )
 
         file = environ.var(
