@@ -67,7 +67,7 @@ class Iris:
         if not type(response) == np.ndarray:
             raise AssertionError(
                 "Prediction did not return the expected type of numpy.ndarray; "
-                f"recieved {type(response)} instead."
+                f"received {type(response)} instead."
             )
 
         if not len(response) == 1:
