@@ -3,7 +3,6 @@ import errno
 import logging
 import os
 import pickle  # noqa - S403
-import sys
 
 from iris_inference_service.config import app_cfg
 
