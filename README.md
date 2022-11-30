@@ -34,6 +34,29 @@ To run the application run the following command:
 python app.py
 ```
 
+### Testing the Application
+
+This project is configured to utilize tox to run various tests.  
+
+To execute all tox tasks run the following command:
+
+```
+tox
+```
+
+To execute a specific task run the following:
+
+```
+tox -e lint
+```
+
+This project currently supports the following tasks:
+
+py39 - Executes pytest with python 3.9
+lint - Executes flake8 checks
+format - Executes black check (does not automatically format code)
+check - Executes pipenv check for security vulnerabilities
+
 ## Folders
 
 ### iris_inference_service/
