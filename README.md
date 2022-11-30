@@ -36,21 +36,21 @@ python app.py
 
 ## Folders
 
-### /iris_inference_service
+### iris_inference_service/
 
 This folder containers the main python package containing the source code utilized for serving the machine learning model.
 
-### /models
+### models/
 
 The models folder contains the machine learning model trained by the train_iris.ipynb or another repository.  Models should be saved in the .pkl format.
 
-### /notebooks
+### notebooks/
 
 _seldon-request.ipynb_ contains functions for interacting with the ML service. This notebook acts as a client service. They send inputs to the service via http requests and validate the responses which are returned, comparing them against expected values.
 
 _train_iris.ipynb_ uses the RandomForestClassifier to train on the Iris data set. The dataset is split into a training and testing set for identifying the species of plant based on Iris data.  This notebook can be used to help train a local version of the model.
 
-### /tests
+### tests/
 
 Tests contains test functions that can be executed using the pytest framework.
 
