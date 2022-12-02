@@ -55,7 +55,7 @@ This project currently supports the following tasks:
 py39 - Executes pytest with python 3.9
 lint - Executes flake8 checks
 format - Executes black check (does not automatically format code)
-check - Executes pipenv check for security vulnerabilities
+dep-check - Executes pipenv check for security vulnerabilities on dependencies
 
 ## Folders
 
