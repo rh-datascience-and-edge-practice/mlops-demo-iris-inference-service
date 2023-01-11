@@ -60,7 +60,7 @@ class Iris:
     def health_status(self):
         """Health endpoint validation for model class."""
         X_example = [[7.2, 3.6, 6.1, 2.5]]
-        columns = ["sepal length", "sepal width", "petal length", "petal width"]
+        columns = ["sepalLength", "sepalWidth", "petalLength", "petalWidth"]
 
         response = self.predict(X_example, columns)
 
