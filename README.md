@@ -78,5 +78,5 @@ _train_iris.ipynb_ uses the RandomForestClassifier to train on the Iris data set
 Tests contains test functions that can be executed using the pytest framework.
 
 ```
-pytest tests/
+pytest tests
 ```
