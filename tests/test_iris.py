@@ -40,7 +40,7 @@ def test_iris_load_model_fail():
 
 def test_predict_response_wrong_number_of_x(iris):
     X = [[7.2, 3.6, 6.1]]
-    columns = ["sepal length", "sepal width", "petal length", "petal width"]
+    columns = ["sepalLength", "sepalWidth", "petalLength", "petalWidth"]
 
     with pytest.raises(Exception):
         iris.predict(X=X, features_names=columns)
@@ -48,7 +48,7 @@ def test_predict_response_wrong_number_of_x(iris):
 
 def test_model_response_types(iris):
     X = [[7.2, 3.6, 6.1, 2.5]]
-    columns = ["sepal length", "sepal width", "petal length", "petal width"]
+    columns = ["sepalLength", "sepalWidth", "petalLength", "petalWidth"]
 
     result = iris.predict(X=X, features_names=columns)
     assert type(result) == np.ndarray
