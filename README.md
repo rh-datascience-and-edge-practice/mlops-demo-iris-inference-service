@@ -36,7 +36,7 @@ python app.py
 
 ### Testing the Application
 
-This project is configured to utilize tox to run various tests.  
+This project is configured to utilize tox to run various tests.
 
 To execute all tox tasks run the following command:
 
