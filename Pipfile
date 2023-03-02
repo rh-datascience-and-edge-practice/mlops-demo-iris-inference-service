@@ -23,6 +23,7 @@ jupyter = "*"
 requests = "*"
 pytest-mock = "*"
 black = {extras = ["jupyter"], version = "*"}
+pre-commit = "*"
 
 [requires]
 python_version = "3.9"
