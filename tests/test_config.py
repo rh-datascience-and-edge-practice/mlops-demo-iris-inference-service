@@ -17,12 +17,10 @@ def set_env_vars():
             "MODEL_FILE": "models/iris-model.pkl",
         },
     ):
-
         yield
 
 
 def test_setting_log_level_env_var(set_env_vars):
-
     from iris_inference_service.config import AppConfig
 
     app_cfg = environ.to_config(AppConfig)
@@ -30,7 +28,6 @@ def test_setting_log_level_env_var(set_env_vars):
 
 
 def test_setting_model_name_env_var(set_env_vars):
-
     from iris_inference_service.config import AppConfig
 
     app_cfg = environ.to_config(AppConfig)
@@ -38,7 +35,6 @@ def test_setting_model_name_env_var(set_env_vars):
 
 
 def test_setting_model_file_env_var(set_env_vars):
-
     from iris_inference_service.config import AppConfig
 
     app_cfg = environ.to_config(AppConfig)
